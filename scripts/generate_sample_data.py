@@ -1,115 +1,129 @@
-"""가상 쇼핑몰 샘플 데이터 생성 스크립트.
+"""실습용 가상 쇼핑몰 데이터를 생성합니다.
 
-프로젝트 루트에서 실행합니다.
+실행 방법:
     python scripts/generate_sample_data.py
 
-실행하면 data/raw/ 아래에 다음 파일이 생성됩니다.
-    customers.csv, products.csv, orders.csv, order_items.csv
+생성 위치:
+    data/raw/customers.csv
+    data/raw/products.csv
+    data/raw/orders.csv
+    data/raw/order_items.csv
 """
 
-import random
 from pathlib import Path
+import random
 
-import pandas as pd
 from faker import Faker
-
-fake = Faker("ko_KR")
-random.seed(42)
-Faker.seed(42)
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-RAW_DIR = BASE_DIR / "data" / "raw"
-
-NUM_CUSTOMERS = 200
-NUM_PRODUCTS = 50
-NUM_ORDERS = 500
-
-CATEGORIES = ["의류", "전자기기", "식품", "도서", "생활용품", "뷰티", "스포츠"]
+import pandas as pd
 
 
-def generate_customers():
+SEED = 42
+RAW_DATA_DIR = Path("data/raw")
+
+
+def create_customers(fake: Faker, count: int = 150) -> pd.DataFrame:
+    """가상의 고객 데이터를 생성합니다."""
+    cities = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "수원", "성남", "고양"]
+    genders = ["F", "M"]
+
     rows = []
-    for customer_id in range(1, NUM_CUSTOMERS + 1):
+    for customer_id in range(1, count + 1):
         rows.append(
             {
                 "customer_id": customer_id,
                 "name": fake.name(),
-                "email": fake.email(),
-                "phone": fake.phone_number(),
-                "address": fake.address(),
-                "join_date": fake.date_between(start_date="-2y", end_date="today"),
+                "gender": random.choice(genders),
+                "age": random.randint(18, 69),
+                "city": random.choice(cities),
+                "signup_date": fake.date_between(start_date="-3y", end_date="today").isoformat(),
             }
         )
     return pd.DataFrame(rows)
 
 
-def generate_products():
+def create_products(count: int = 100) -> pd.DataFrame:
+    """가상의 상품 데이터를 생성합니다."""
+    categories = ["식품", "생활용품", "패션", "전자기기", "도서", "스포츠", "뷰티"]
+
     rows = []
-    for product_id in range(1, NUM_PRODUCTS + 1):
+    for product_id in range(1, count + 1):
+        category = random.choice(categories)
         rows.append(
             {
                 "product_id": product_id,
-                "name": fake.word() + " " + random.choice(["세트", "패키지", "기본형", "프리미엄"]),
-                "category": random.choice(CATEGORIES),
-                "price": random.randrange(3000, 200000, 1000),
-                "stock": random.randint(0, 300),
+                "product_name": f"{category} 상품 {product_id:03d}",
+                "category": category,
+                "price": random.randrange(5_000, 200_001, 1_000),
             }
         )
     return pd.DataFrame(rows)
 
 
-def generate_orders():
+def create_orders(customer_ids: list[int], fake: Faker, count: int = 300) -> pd.DataFrame:
+    """가상의 주문 데이터를 생성합니다."""
+    payment_methods = ["card", "bank_transfer", "kakao_pay", "naver_pay"]
+    order_statuses = ["completed", "completed", "completed", "cancelled", "refunded"]
+
     rows = []
-    for order_id in range(1, NUM_ORDERS + 1):
+    for order_id in range(1, count + 1):
         rows.append(
             {
                 "order_id": order_id,
-                "customer_id": random.randint(1, NUM_CUSTOMERS),
-                "order_date": fake.date_between(start_date="-1y", end_date="today"),
-                "status": random.choice(["결제완료", "배송중", "배송완료", "취소"]),
+                "customer_id": random.choice(customer_ids),
+                "order_date": fake.date_between(start_date="-1y", end_date="today").isoformat(),
+                "payment_method": random.choice(payment_methods),
+                "order_status": random.choice(order_statuses),
             }
         )
     return pd.DataFrame(rows)
 
 
-def generate_order_items(orders_df):
+def create_order_items(orders: pd.DataFrame, products: pd.DataFrame) -> pd.DataFrame:
+    """각 주문에 1개 이상 상품을 연결한 주문 상세 데이터를 생성합니다."""
+    product_price_map = dict(zip(products["product_id"], products["price"], strict=True))
+    product_ids = list(product_price_map.keys())
+
     rows = []
     order_item_id = 1
-    for order_id in orders_df["order_id"]:
-        num_items = random.randint(1, 4)
-        for _ in range(num_items):
-            product_id = random.randint(1, NUM_PRODUCTS)
-            quantity = random.randint(1, 3)
+    for order_id in orders["order_id"]:
+        for _ in range(random.randint(1, 4)):
+            product_id = random.choice(product_ids)
             rows.append(
                 {
                     "order_item_id": order_item_id,
                     "order_id": order_id,
                     "product_id": product_id,
-                    "quantity": quantity,
+                    "quantity": random.randint(1, 5),
+                    "unit_price": product_price_map[product_id],
                 }
             )
             order_item_id += 1
     return pd.DataFrame(rows)
 
 
-def main():
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
+def main() -> None:
+    """CSV 파일 4개를 data/raw 폴더에 저장합니다."""
+    random.seed(SEED)
+    Faker.seed(SEED)
+    fake = Faker("ko_KR")
 
-    customers_df = generate_customers()
-    products_df = generate_products()
-    orders_df = generate_orders()
-    order_items_df = generate_order_items(orders_df)
+    RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    customers_df.to_csv(RAW_DIR / "customers.csv", index=False, encoding="utf-8-sig")
-    products_df.to_csv(RAW_DIR / "products.csv", index=False, encoding="utf-8-sig")
-    orders_df.to_csv(RAW_DIR / "orders.csv", index=False, encoding="utf-8-sig")
-    order_items_df.to_csv(RAW_DIR / "order_items.csv", index=False, encoding="utf-8-sig")
+    customers = create_customers(fake)
+    products = create_products()
+    orders = create_orders(customers["customer_id"].tolist(), fake)
+    order_items = create_order_items(orders, products)
 
-    print(f"완료: {RAW_DIR} 에 4개 파일을 생성했습니다.")
-    print(f"- customers.csv   ({len(customers_df)}행)")
-    print(f"- products.csv    ({len(products_df)}행)")
-    print(f"- orders.csv      ({len(orders_df)}행)")
-    print(f"- order_items.csv ({len(order_items_df)}행)")
+    customers.to_csv(RAW_DATA_DIR / "customers.csv", index=False, encoding="utf-8-sig")
+    products.to_csv(RAW_DATA_DIR / "products.csv", index=False, encoding="utf-8-sig")
+    orders.to_csv(RAW_DATA_DIR / "orders.csv", index=False, encoding="utf-8-sig")
+    order_items.to_csv(RAW_DATA_DIR / "order_items.csv", index=False, encoding="utf-8-sig")
+
+    print("샘플 데이터 생성 완료")
+    print(f"- {RAW_DATA_DIR / 'customers.csv'}: {len(customers)} rows")
+    print(f"- {RAW_DATA_DIR / 'products.csv'}: {len(products)} rows")
+    print(f"- {RAW_DATA_DIR / 'orders.csv'}: {len(orders)} rows")
+    print(f"- {RAW_DATA_DIR / 'order_items.csv'}: {len(order_items)} rows")
 
 
 if __name__ == "__main__":
