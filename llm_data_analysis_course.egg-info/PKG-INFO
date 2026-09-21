@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: llm-data-analysis-course
+Version: 0.1.0
+Summary: LLM Data Analysis Course
+Requires-Python: >=3.11

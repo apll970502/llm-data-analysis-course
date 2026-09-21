@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-data-analysis-course"
+version = "0.1.0"
+description = "LLM Data Analysis Course"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "course_utils*",
+    "src",
+    "src.",
+]
