@@ -1,0 +1,3 @@
+﻿관계,validate,병합 전 행 수,병합 후 행 수,미매칭 건수
+orders <-> order_features,one_to_one,248,248,0
+orders <-> customers,many_to_one,248,248,0

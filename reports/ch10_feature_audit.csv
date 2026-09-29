@@ -1,0 +1,17 @@
+﻿feature,type,status,reason
+item_count,numeric,사용,주문 시점에 알 수 있음
+total_quantity,numeric,사용,주문 시점에 알 수 있음
+order_amount,numeric,사용,주문 시점에 알 수 있음
+order_month_num,numeric,사용,주문 시점에 알 수 있음
+order_dayofweek,numeric,사용,주문 시점에 알 수 있음
+age,numeric,사용,주문 시점에 알 수 있음
+payment_method,categorical,사용,주문 시점에 알 수 있음
+gender,categorical,사용,주문 시점에 알 수 있음
+city,categorical,사용,주문 시점에 알 수 있음
+order_status,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+is_cancelled,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+order_id,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+customer_id,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+product_id,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+order_item_id,-,제외,"target, ID, 사후 정보 또는 날짜 원본"
+order_date,-,제외,"target, ID, 사후 정보 또는 날짜 원본"

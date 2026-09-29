@@ -1,0 +1,4 @@
+﻿split,행 수,completed,cancelled,취소 비율(%)
+Train,148,110,38,25.7
+Validation,50,37,13,26.0
+Test,50,37,13,26.0

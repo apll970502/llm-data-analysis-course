@@ -1,0 +1,6 @@
+﻿check,result
+결측치 합계 (orders/order_items/customers),0/0/0
+중복 order_id 건수,0
+quantity > 0,PASS
+unit_price > 0,PASS
+order_id당 주문 특징 1행,PASS

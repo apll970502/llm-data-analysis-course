@@ -1,0 +1,4 @@
+﻿모델,Accuracy,Precision,Recall,F1
+Dummy,0.74,0.0,0.0,0.0
+Logistic Regression,0.76,0.6,0.231,0.333
+Random Forest,0.74,0.5,0.077,0.133
