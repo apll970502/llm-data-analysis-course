@@ -1,0 +1,4 @@
+﻿모델,cv_MAE_mean,cv_MAE_std,cv_R2_mean,비고
+Baseline Mean,420959.0,45361.0,-0.026,기준점
+Linear Regression,470981.0,74273.0,-0.384,Baseline보다 높음(나쁨)
+Random Forest,469067.0,53894.0,-0.349,Baseline보다 높음(나쁨)

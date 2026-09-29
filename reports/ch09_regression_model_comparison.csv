@@ -1,0 +1,3 @@
+﻿모델,selection_role,train_MAE,test_MAE,test_RMSE,test_R2,MAE_improvement_vs_baseline_pct
+Baseline Mean,baseline,414435.0,448808.0,526649.0,-0.002,0.0
+Random Forest,selected_by_train_cv,167643.0,497946.0,580811.0,-0.219,-10.9
