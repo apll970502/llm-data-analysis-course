@@ -1,0 +1,9 @@
+﻿step,execution_status,executed_at,provider,model,prompt_version,purpose,input_summary,response_summary,validation_result,revision_note,final_use
+데이터 구조 설명,not_executed,,,,2.0,,,,,,not_used
+분석 질문 생성,not_executed,,,,2.0,,,,,,not_used
+전처리 계획,not_executed,,,,2.0,,,,,,not_used
+시각화 설계,not_executed,,,,2.0,,,,,,not_used
+회귀 코드 검토,not_executed,,,,2.0,,,,,,not_used
+분류 코드 검토,not_executed,,,,2.0,,,,,,not_used
+결과 해석,not_executed,,,,2.0,,,,,,not_used
+외부 문서 검토,not_executed,,,,2.0,,,,,,not_used

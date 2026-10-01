@@ -1,0 +1,13 @@
+﻿dataset,column,review_reason,column_name_share_policy,recommended_action,human_decision
+customers,customer_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+customers,name,sensitive_name_pattern,do_not_share_name_by_default,컬럼명과 원본 값 모두 외부 공유 전 조직 정책·필요성 검토,review_required
+customers,gender,low_cardinality_review,review_required,소수 범주를 값과 함께 집계할 때 재식별 가능성 검토,review_required
+products,product_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+products,product_name,sensitive_name_pattern,do_not_share_name_by_default,컬럼명과 원본 값 모두 외부 공유 전 조직 정책·필요성 검토,review_required
+orders,order_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+orders,customer_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+orders,payment_method,low_cardinality_review,review_required,소수 범주를 값과 함께 집계할 때 재식별 가능성 검토,review_required
+orders,order_status,low_cardinality_review,review_required,소수 범주를 값과 함께 집계할 때 재식별 가능성 검토,review_required
+order_items,order_item_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+order_items,order_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required
+order_items,product_id,identifier,share_name_only_no_values,관계 설명에는 컬럼명만 검토 후 사용; 원본 ID 값 공유 금지,review_required

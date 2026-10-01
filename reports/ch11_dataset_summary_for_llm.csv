@@ -1,0 +1,5 @@
+﻿dataset,description,source_type,rows,columns,missing_values,duplicated_rows,identifier_column_count,excluded_sensitive_name_count
+customers,고객 정보,processed,150,6,2,0,1,1
+products,상품 정보,processed,96,4,0,0,1,1
+orders,주문 정보,processed,300,7,9,0,2,0
+order_items,주문 상세 정보,processed,752,6,0,0,3,0

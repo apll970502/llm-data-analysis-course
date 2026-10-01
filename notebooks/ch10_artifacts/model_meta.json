@@ -1,0 +1,237 @@
+{
+  "model_name": "Logistic Regression",
+  "threshold": 0.45,
+  "numeric_features": [
+    "item_count",
+    "total_quantity",
+    "order_amount",
+    "order_month_num",
+    "order_dayofweek",
+    "age"
+  ],
+  "categorical_features": [
+    "payment_method",
+    "gender",
+    "city"
+  ],
+  "feature_columns": [
+    "item_count",
+    "total_quantity",
+    "order_amount",
+    "order_month_num",
+    "order_dayofweek",
+    "age",
+    "payment_method",
+    "gender",
+    "city"
+  ],
+  "options": {
+    "payment_method": [
+      "bank_transfer",
+      "card",
+      "kakao_pay",
+      "naver_pay"
+    ],
+    "gender": [
+      "F",
+      "M"
+    ],
+    "city": [
+      "고양",
+      "광주",
+      "대구",
+      "대전",
+      "부산",
+      "서울",
+      "성남",
+      "수원",
+      "울산",
+      "인천"
+    ]
+  },
+  "ranges": {
+    "age": [
+      19.0,
+      69.0
+    ],
+    "order_amount": [
+      10000.0,
+      2821000.0
+    ],
+    "item_count": [
+      1.0,
+      4.0
+    ],
+    "total_quantity": [
+      1.0,
+      19.0
+    ]
+  },
+  "class_counts": {
+    "completed": 184,
+    "cancelled": 64
+  },
+  "split_sizes": {
+    "train": 148,
+    "validation": 50,
+    "test": 50
+  },
+  "validation_curve": [
+    {
+      "accuracy": 0.3,
+      "precision": 0.2708333333333333,
+      "recall": 1.0,
+      "f1": 0.4262295081967213,
+      "threshold": 0.1,
+      "predicted_cancel": 48
+    },
+    {
+      "accuracy": 0.38,
+      "precision": 0.2857142857142857,
+      "recall": 0.9230769230769231,
+      "f1": 0.43636363636363634,
+      "threshold": 0.15,
+      "predicted_cancel": 42
+    },
+    {
+      "accuracy": 0.38,
+      "precision": 0.275,
+      "recall": 0.8461538461538461,
+      "f1": 0.41509433962264153,
+      "threshold": 0.2,
+      "predicted_cancel": 40
+    },
+    {
+      "accuracy": 0.48,
+      "precision": 0.30303030303030304,
+      "recall": 0.7692307692307693,
+      "f1": 0.43478260869565216,
+      "threshold": 0.25,
+      "predicted_cancel": 33
+    },
+    {
+      "accuracy": 0.62,
+      "precision": 0.36363636363636365,
+      "recall": 0.6153846153846154,
+      "f1": 0.45714285714285713,
+      "threshold": 0.3,
+      "predicted_cancel": 22
+    },
+    {
+      "accuracy": 0.7,
+      "precision": 0.42857142857142855,
+      "recall": 0.46153846153846156,
+      "f1": 0.4444444444444444,
+      "threshold": 0.35,
+      "predicted_cancel": 14
+    },
+    {
+      "accuracy": 0.74,
+      "precision": 0.5,
+      "recall": 0.38461538461538464,
+      "f1": 0.43478260869565216,
+      "threshold": 0.4,
+      "predicted_cancel": 10
+    },
+    {
+      "accuracy": 0.8,
+      "precision": 0.7142857142857143,
+      "recall": 0.38461538461538464,
+      "f1": 0.5,
+      "threshold": 0.45,
+      "predicted_cancel": 7
+    },
+    {
+      "accuracy": 0.76,
+      "precision": 0.6,
+      "recall": 0.23076923076923078,
+      "f1": 0.3333333333333333,
+      "threshold": 0.5,
+      "predicted_cancel": 5
+    },
+    {
+      "accuracy": 0.78,
+      "precision": 1.0,
+      "recall": 0.15384615384615385,
+      "f1": 0.26666666666666666,
+      "threshold": 0.55,
+      "predicted_cancel": 2
+    },
+    {
+      "accuracy": 0.78,
+      "precision": 1.0,
+      "recall": 0.15384615384615385,
+      "f1": 0.26666666666666666,
+      "threshold": 0.6,
+      "predicted_cancel": 2
+    },
+    {
+      "accuracy": 0.76,
+      "precision": 1.0,
+      "recall": 0.07692307692307693,
+      "f1": 0.14285714285714285,
+      "threshold": 0.65,
+      "predicted_cancel": 1
+    },
+    {
+      "accuracy": 0.76,
+      "precision": 1.0,
+      "recall": 0.07692307692307693,
+      "f1": 0.14285714285714285,
+      "threshold": 0.7,
+      "predicted_cancel": 1
+    },
+    {
+      "accuracy": 0.74,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": 0.75,
+      "predicted_cancel": 0
+    },
+    {
+      "accuracy": 0.74,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": 0.8,
+      "predicted_cancel": 0
+    },
+    {
+      "accuracy": 0.74,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": 0.85,
+      "predicted_cancel": 0
+    },
+    {
+      "accuracy": 0.74,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": 0.9,
+      "predicted_cancel": 0
+    }
+  ],
+  "test_metrics": {
+    "Dummy": {
+      "accuracy": 0.74,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "Logistic Regression": {
+      "accuracy": 0.72,
+      "precision": 0.4444444444444444,
+      "recall": 0.3076923076923077,
+      "f1": 0.36363636363636365
+    }
+  },
+  "confusion": {
+    "tn": 32,
+    "fp": 5,
+    "fn": 9,
+    "tp": 4
+  }
+}

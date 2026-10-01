@@ -1,0 +1,6 @@
+﻿check,value,status
+processed_context_only,processed,PASS
+sensitive_column_names_hidden,none,PASS
+raw_value_examples_not_generated,schema statistics only,PASS
+external_context_requires_human_review,approval_not_implied,PASS
+prompt_injection_warning_present,untrusted data,PASS
