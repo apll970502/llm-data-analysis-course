@@ -1,0 +1,11 @@
+﻿항목,상태,확인 근거
+정말 필요한가?,REVIEW,이미 설치된 패키지로 해결 가능한지
+공식 이름과 출처인가?,REVIEW,PyPI 공식 페이지 확인
+이름 오타 위험(typosquatting),REVIEW,비슷한 이름의 가짜 패키지가 아닌지
+정확한 버전 고정,REVIEW,requirements.txt에서 == 고정 안 된 줄 18개
+Python 호환성,REVIEW,현재 Python 3.14.6
+하위 의존성 검토,REVIEW,함께 설치되는 패키지 목록
+설치 스크립트 검토,REVIEW,설치 중 실행되는 코드 확인
+격리 환경에서 설치,PASS,가상환경 사용 중
+requirements/lock에 기록,REVIEW,설치 후 기록했는지
+조직 정책에 맞는가?,REVIEW,사용 허용 여부

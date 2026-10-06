@@ -1,0 +1,5 @@
+﻿table,required,missing_columns,result
+customers,6,-,PASS
+products,4,-,PASS
+orders,5,-,PASS
+order_items,6,-,PASS

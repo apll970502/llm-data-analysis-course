@@ -1,0 +1,10 @@
+﻿항목,상태,확인 근거
+복사한 소량 샘플 사용,REVIEW,실행 입력이 원본이 아닌 복사본인지 직접 확인
+입력 파일 read-only,REVIEW,가능하면 읽기 전용으로 설정
+API Key / DB password 없음,PASS,KEY/TOKEN/SECRET/PASSWORD 이름의 환경변수 0개
+버려도 되는 환경(가상환경),PASS,가상환경 사용 중
+쓰기 경로 허용 목록(allowlist),REVIEW,저장 가능한 폴더를 미리 정했는지
+네트워크 기본 차단,REVIEW,외부 통신이 막혀 있는지
+CPU/메모리/시간 제한,REVIEW,무한 실행 방지 장치(timeout)
+실행 전 baseline 기록,REVIEW,파일 목록·크기를 미리 저장
+실행 후 변경 비교,REVIEW,실행 전과 후의 차이 확인

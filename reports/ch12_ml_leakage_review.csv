@@ -1,0 +1,24 @@
+﻿problem,feature,status,reason
+regression,order_total,FORBIDDEN,정답(타깃) 자체
+regression,line_total,FORBIDDEN,금액을 직접 계산하는 값
+regression,quantity,FORBIDDEN,금액 계산에 쓰이는 값
+regression,unit_price,FORBIDDEN,금액 계산에 쓰이는 값
+regression,item_count,FORBIDDEN,주문이 끝나야 확정되는 집계값
+regression,total_quantity,FORBIDDEN,주문이 끝나야 확정되는 집계값
+regression,avg_unit_price,FORBIDDEN,금액에서 파생된 값
+regression,order_status,FORBIDDEN,주문 결과를 알아야 알 수 있는 값
+regression,order_id,FORBIDDEN,식별자 (예측 의미 없음)
+regression,customer_id,FORBIDDEN,식별자 (예측 의미 없음)
+classification,order_status,FORBIDDEN,정답(타깃) 자체
+classification,is_cancelled,FORBIDDEN,정답을 그대로 담은 값
+classification,order_id,FORBIDDEN,식별자 (예측 의미 없음)
+classification,customer_id,FORBIDDEN,식별자 (예측 의미 없음)
+classification,product_id,FORBIDDEN,식별자 (예측 의미 없음)
+classification,line_total,FORBIDDEN,상세 행 단위 값 (주문 단위와 불일치)
+classification,quantity,FORBIDDEN,상세 행 단위 값 (주문 단위와 불일치)
+classification,unit_price,FORBIDDEN,상세 행 단위 값 (주문 단위와 불일치)
+classification,cancel_reason,FORBIDDEN,취소 후에야 생기는 값 (미래 정보)
+classification,cancelled_at,FORBIDDEN,취소 후에야 생기는 값 (미래 정보)
+classification,item_count,REVIEW,주문 생성 시점에 확정된다는 가정이 필요
+classification,total_quantity,REVIEW,주문 생성 시점에 확정된다는 가정이 필요
+classification,order_amount,REVIEW,주문 생성 시점에 확정된다는 가정이 필요

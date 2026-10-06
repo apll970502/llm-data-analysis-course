@@ -1,0 +1,4 @@
+﻿relationship,parent_unique,fk_null,orphan_rows,orphan_values,result
+orders.customer_id → customers.customer_id,True,0,2,"[9991, 9992]",FAIL
+order_items.order_id → orders.order_id,True,0,2,"[9991, 9992]",FAIL
+order_items.product_id → products.product_id,True,0,26,"[18, 48, 73, 95, 9991, 9992]",FAIL

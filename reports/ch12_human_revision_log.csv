@@ -1,0 +1,9 @@
+﻿문제,수정 방안
+FK 위반 행 존재,고아 행을 제외하고 제외 건수·금액을 함께 기록
+merge 검증 없음,"validate=""many_to_one""와 indicator 추가"
+category 이름 오타,공백 제거·표기 통일 후 집계
+원본 CSV 덮어쓰기,출력 경로를 승인된 output 폴더로 제한
+네트워크 전송,requests 호출 제거
+외부 명령·pip 설치,"subprocess 제거, 패키지 설치 보류"
+eval 사용,"eval 제거, 일반 코드로 대체"
+하드코딩된 API_KEY,코드에서 삭제 후 환경변수로 관리

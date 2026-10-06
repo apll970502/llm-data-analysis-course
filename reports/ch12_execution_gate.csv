@@ -1,0 +1,8 @@
+﻿축,상태
+schema_and_keys,FAIL
+aggregate_validation,REVIEW
+ml_leakage,REVIEW
+static_scan,BLOCKED
+sandbox_and_package,REVIEW
+human_approval,NOT_APPROVED
+execution_decision,DO_NOT_EXECUTE

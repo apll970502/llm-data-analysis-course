@@ -1,0 +1,10 @@
+﻿line,severity,rule,desc
+3,high,import requests,네트워크 요청
+4,critical,import subprocess,외부 프로세스 실행
+6,critical,API_KEY = '...',하드코딩된 비밀값
+9,high,requests.post(),네트워크 요청
+10,critical,subprocess.run(),외부 프로세스 실행
+10,high,pip 문자열,패키지 설치 시도
+11,critical,eval(),문자열을 코드로 실행
+13,review,df.to_csv(),CSV 파일 쓰기
+14,high,open(mode='w'),파일 쓰기

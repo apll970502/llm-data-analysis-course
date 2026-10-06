@@ -1,0 +1,13 @@
+﻿검증 항목,값,결과,설명
+orders.order_id 고유성,True,PASS,
+products.product_id 고유성,True,PASS,
+"merge validate=""many_to_one""",통과,PASS,일대다 관계가 깨지면 에러 발생
+merge 전후 행 수,752 → 752,PASS,행이 늘면 key 중복 의심
+주문 미매칭 행,2,REVIEW,orders에 없는 order_id
+상품 미매칭 행,26,REVIEW,products에 없는 product_id
+category 결측,26,REVIEW,집계에서 조용히 빠짐
+날짜 변환 실패,11,REVIEW,월별 집계에서 빠짐
+completed 주문 범위,446행,PASS,completed만 포함되었는지
+source total,"141,340,000",PASS,기준 금액
+category grouped total,"137,325,000",REVIEW,"차이 4,015,000"
+monthly grouped total,"139,437,000",REVIEW,"차이 1,903,000"

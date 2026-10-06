@@ -1,0 +1,5 @@
+﻿table,primary_key,rows,null_count,duplicate_count,result
+customers,customer_id,150,0,0,PASS
+products,product_id,96,0,0,PASS
+orders,order_id,300,0,0,PASS
+order_items,order_item_id,752,0,0,PASS
