@@ -1,0 +1,33 @@
+{
+  "stay": {
+    "params": {
+      "MobileOS": "ETC",
+      "MobileApp": "chapter14-1",
+      "_type": "json",
+      "baseYm": "auto",
+      "areaCd": "11",
+      "tarSjrnDsIxCd": "21",
+      "numOfRows": 100,
+      "pageNo": 1
+    }
+  },
+  "consumption": {
+    "params": {
+      "MobileOS": "ETC",
+      "MobileApp": "chapter14-1",
+      "_type": "json",
+      "baseYm": "auto",
+      "areaCd": "11",
+      "tarExpDsIxCd": "22",
+      "numOfRows": 100,
+      "pageNo": 1
+    }
+  },
+  "fields": {
+    "item_path": ["response", "body", "items", "item"],
+    "region": "signguNm",
+    "date": "baseYm",
+    "stay": "tarSjrnDsIxVal",
+    "consumption": "tarExpDsIxVal"
+  }
+}
