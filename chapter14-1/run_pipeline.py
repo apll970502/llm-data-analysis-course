@@ -22,6 +22,7 @@ logging.basicConfig(
 STEPS = [
     "src/collect_naver.py",
     "src/collect_tourism.py",
+    "src/validate_data.py",
     "src/analyze.py",
     "src/generate_llm_report.py",
     "src/generate_pdf.py",
